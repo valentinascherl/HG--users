@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/perfil.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <%- include('./partials/header') %>
+
+    <main class="container-fluid">
+        <div class="container">
+            <div class="row ppal">
+                <form action="/users/perfil/editarPerfil" method="POST">
+                    <section>
+                        <article class="datos">
+                            <div class="col-12 ">
+                                <label for="nombre" class="form-label">Nombre: </label>
+                                <input type="text" id="nombre" name="nombre" value="<%= user.nombre %>"
+                                    class="form-input">
+                            </div>
+                            <div class="col-12 ">
+                                <label for="apellido" class="form-label">Apellido:</label>
+                                <input type="text" id="apellido" name="apellido" placeholder="Ej: 5678" value="<%= user.apellido %>"
+                                    class="form-input">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label for="avatar" class="form-label">Foto:</label>
+                                <input type="file" id="avatar" name="avatar" value="<%= user.avatar %>" accept=".jpg,.png">
+                            </div>
+                            <div class="col-12">
+                                <label for="email" class="form-label">Email:</label>
+                                <input type="text" id="email" name="email" placeholder="Ej: 15" value="<%= user.email %>" class="form-input">
+                            </div>
+                            <div class="col-12">
+                                <label for="contrasena" class="form-label">Contraseña:</label>
+                                <input type="text" id="contrasena" name="contrasena" placeholder="Ej: 15" value="<%= user.contrasena %>"
+                                    class="form-input">
+                            </div>
+                            <div class="col-12">
+                                <label for="domicilio" class="form-label">Domicilio:</label>
+                                <input type="text" id="domicilio" name="domicilio"  placeholder="Ej: 15" value="<%= user.domicilio %>"
+                                    class="form-input">
+                            </div>
+                            <div class="col-12">
+                                <label for="ciudad" class="form-label">Ciudad:</label>
+                                <input type="text" id="ciudad" name="ciudad" placeholder="Ej: 15" class="form-input" value="<%= user.ciudad %>">
+                            </div>
+                            <div class="col-6">
+                                <label for="inputState">Departamento:</label>
+                                <select id="inputState" class="form-control" name="departamento" value="<%= user.departamento %>" required>
+                                    <option selected>Departamento...</option>
+                                    <option>Ciudad</option>
+                                    <option>Godoy Cruz</option>
+                                    <option>Guaymallén</option>
+                                    <option>Las Heras</option>
+                                    <option>Luján de Cuyo</option>
+                                    <option>Maipú</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label for="codigoPostal" class="form-label">Código postal:</label>
+                                <input type="text" id="codigoPostal" name="codigoPostal" value="<%= user.codigoPostal %>" placeholder="Ej: 15"
+                                    class="form-input">
+                            </div>
+                        </article>
+                    </section>
+                
+                            <article class="editar">
+                                <a href="#"> <button type="submit" class="btn btn-danger"> Guardar cambios</button> </a>
+                            </article>
+
+
+        
+            </form>
+    </div>
+    </div>
+
+            <!--Footer-->
+            <%- include('./partials/footer') %>
+</body>
+
+</html>

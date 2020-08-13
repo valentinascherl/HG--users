@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/registro.css">
+</head>
+
+<body class="body">
+    <%- include('./partials/header') %>
+    <% if (typeof(mensaje) != "undefined") { %>
+    <p style="color: green; font-size: 20px;"> <%= mensaje %> </p>
+    <% } %>
+
+    <% if (typeof errors != 'undefined') { %>
+    <p style="color: red; font-size: 15px; font-family:'Kreon', serif">Se han encontrado 1 o varios errores:</p>
+    <ul style="color: red; font-size: 15px; font-family:'Kreon', serif">
+        <% for (var i = 0; i < errors.length; i++){ %>
+        <li>
+            <%= errors[i].msg %>
+        </li>
+        <% } %>
+    </ul>
+    <% } %>
+
+    <div class="container-fluid">
+        <div class="banner-registro">
+            <img src="/images/Visuales/8.png" width="100%">
+        </div>
+        <div class="container main">
+
+            <div class="row justify-content-center">
+                <div class="registrarse">
+                    <h2 class="titulo col-12">Registrarme</h2>
+                    <form method="POST" action="/users/registro">
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-6">
+                                <label for="inputEmail4">Nombre</label>
+                                <input type="text" class="form-control" id="inputEmail4" name="nombre" required>
+                            </div>
+                            <div class="form-group col-12 col-md-6">
+                                <label for="inputPassword4">Apellido</label>
+                                <input type="text" class="form-control" id="inputPassword4" name="apellido" required>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="avatar"><strong>Elige una foto que represente: </strong></label>
+                            <p></p>
+                            <input type="file" id="avatar" name="avatar" accept=".jpg,.png">
+                        </div>
+                        <div class="form-row">
+
+                            <div class="form-group col-12 col-md-6">
+                                <label for="inputEmail4">Email</label>
+                                <input type="email" class="form-control" id="inputEmail4" name="email" required>
+                                <small>Nadie sabrá tu dirección de email.
+                                </small>
+                            </div>
+                            <div class="form-group col-12 col-md-6">
+                                <label for="inputPassword4">Contraseña</label>
+                                <input type="password" class="form-control" id="inputPassword4" name="contrasena"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputAddress">Domicilio</label>
+                            <input type="text" class="form-control" id="inputAddress" name="domicilio"
+                                placeholder="Ejemplo: Aristides 241, Ciudad, Mendoza." required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-12 col-md-5">
+                                <label for="inputCity">Ciudad</label>
+                                <input type="text" class="form-control" id="inputCity" name="ciudad">
+                            </div>
+                            <div class="form-group col-12 col-md-4">
+                                <label for="inputState">Departamento</label>
+                                <select id="inputState" class="form-control" name="departamento" required>
+                                    <option selected>Departamento...</option>
+                                    <option>Ciudad</option>
+                                    <option>Godoy Cruz</option>
+                                    <option>Guaymallén</option>
+                                    <option>Las Heras</option>
+                                    <option>Luján de Cuyo</option>
+                                    <option>Maipú</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-6 col-md-3">
+                                <label for="inputZip">Código postal</label>
+                                <input type="text" class="form-control" id="inputZip" name="cp" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-danger">Registrarme y comenzar!</button>
+                        <p></p>
+                        <small>No te arrepentirás </small> <i class="far fa-smile-wink"></i>
+
+                        <p></p>
+                        <p></p>
+                    </form>
+
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+    <%- include('./partials/footer') %>
+
+</body>
+
+</html>

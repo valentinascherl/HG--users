@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 1. HACER UN CARROSUEL O ALGO PARA LAS IMAGENES DEL PRODUCTO.
+	2.CAMBIAR EL FONDO DEL INICIO/CARDIO ETC
+	3. SE SUBE CUANDO CAMBIA LA IMAGEN DE ABAJO . SE PUEDE HACER DE OTRA MANERA?
+-->
+<head>
+<%- include('./partials/head', {title: 'Resultados de tu búsqueda'}) %>
+<link rel="stylesheet" href="/stylesheets/detalle.css">
+</head>
+<body>
+	<%- include('./partials/header', {title: 'Resultados de tu búsqueda'}) %>
+
+
+
+	<div class="container-fluid">
+		<div class="container main">
+		
+			<div class="row  justify-content-center">
+				
+				<!-- Container for the image gallery -->
+				<div class="container imagen col-6">
+
+					<!-- Full-width images with number text -->
+					<div class="imagen-container">
+
+						<img src="/images/Productos/<%= product.imagen %>" style="  max-width: 400px ;
+						min-height: 400px; max-height: 500px;">
+					</div>
+
+
+		
+
+					<section class="caracteristicas">
+						<h3 class="h3-caract col-12">Características</h3>
+						<article class="art col-12">
+							<i class="fas fa-hand-point-right"></i> Marca: <%= product.marca %><p></p>
+						</article>
+						<article class="art col-12">
+							<i class="fas fa-hand-point-right"></i> Modelo:
+							<%= product.modelo %><p></p>
+						</article>
+						<article class="art col-12">
+							<i class="fas fa-hand-point-right"></i> Tamaño:
+							<%= product.tamano %>
+						</article>
+					</section>
+
+
+				</div>
+
+
+				<script>
+					var slideIndex = 1;
+					showSlides(slideIndex);
+
+					function plusSlides(n) {
+						showSlides(slideIndex += n);
+					}
+
+					function currentSlide(n) {
+						showSlides(slideIndex = n);
+					}
+
+					function showSlides(n) {
+						var i;
+						var slides = document.getElementsByClassName("mySlides");
+						var dots = document.getElementsByClassName("demo");
+						var captionText = document.getElementById("caption");
+						if (n > slides.length) { slideIndex = 1 }
+						if (n < 1) { slideIndex = slides.length }
+						for (i = 0; i < slides.length; i++) {
+							slides[i].style.display = "none";
+						}
+						for (i = 0; i < dots.length; i++) {
+							dots[i].className = dots[i].className.replace(" active", "");
+						}
+						slides[slideIndex - 1].style.display = "block";
+						dots[slideIndex - 1].className += " active";
+						captionText.innerHTML = dots[slideIndex - 1].alt;
+					}
+				</script>
+
+
+
+				<div class="col-6">
+					<div class="nombre col-12 col-md-12">
+						<h2 class="h2-detalle-nombre"> <%= product.nombre %></h2>
+					</div>
+
+					<div class="precioViejo col-12 col-md-12">
+						<p> <strike> $<%= product.price %></strike>   <% if (product.descuento != 0) { %><%= product.descuento %>%
+							OFF<% } %></p>
+					</div>
+
+						<h2 class="h2-detalle-precio">$<%= formatPrice(product.precio,product.descuento) %></h2>
+
+				
+
+					<div class="descripcion col-12">
+						<h3 class="h3-detalle-descripcion"><%= product.descripcion %></h3>
+					</div>
+					<div class="stock col-12">
+						<h4 class="h4-detalle-stock"> En stock </h4>
+					</div>
+					<div class="envio col-12">
+						<a href="#"><i class="fas fa-truck"></i>
+							Información sobre precio y tiempo aproximado de envío.</a>
+
+					</div>
+					<div class="selecciona col-12">
+						<div class="color">
+							Color:
+							<form class="col-6">
+
+								<select name="cantidad" id="cantidad" style="width: 130px;">
+
+									<option value="Rojo">Rojo</option><br>
+									<option value="Negro">Negro</option><br>
+									<option value="Azul">Azul</option><br>
+
+								</select>
+							</form>
+						</div>
+
+
+						<div class="cantidad">
+							<form class="col-6">
+								Cantidad:
+								<select name="cantidad" id="cantidad" style="width: 130px;">
+
+									<option value="1">1</option><br>
+									<option value="2">2</option><br>
+									<option value="3">3</option><br>
+									<option value="4">4</option><br>
+									<option value="5">5</option><br>
+
+								</select>
+							</form>
+						</div>
+					</div>
+					<div class="botones">
+						<div class="btn-comprar col-5">
+							<a href="/carrito"><button type="button" class="btn-c"><i class="fas fa-coins"></i>COMPRAR
+									AHORA</button></a>
+						</div>
+						<div class="btn-agregar col-6">
+							<button type="button" class="btn-a">
+								<i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
+						</div>
+					</div>
+					<div class="col-12">
+						<a href="#"> ←Seguir comprando</a>
+					</div>
+
+
+				</div>
+
+
+
+				<h5 class="h5-productos-relacionados col-12">PRODCUTOS RELACIONADOS</h5>
+
+
+				<p></p>
+
+
+				<section id="slideshow">
+					<div class="entire-content">
+						<div class="content-carrousel">
+							<figure class="shadow"><img src="/images/Productos/<%= product.imagen %>"></figure>
+							<figure class="shadow"><img src="../public/images/productos/cintacorrer.webp"></figure>
+							<figure class="shadow"><img src="../public/images/productos/bicihorizontal.webp"></figure>
+							<figure class="shadow"><img src="../public/images/productos/escalador.webp"></figure>
+							<figure class="shadow"><img src="../public/images/productos/bicihorizontal.webp"></figure>
+							<figure class="shadow"><img src="../public/images/productos/escalador.webp"></figure>
+							<figure class="shadow"><img src="../public/images/productos/cintacorrer.webp"></figure>
+							<figure class="shadow"><img src="../public/images/productos/bicihorizontal.webp" /></figure>
+							<figure class="shadow"><img src="../public/images/productos/escalador.webp"></figure>
+						</div>
+					</div>
+				</section>
+
+
+
+			</div>
+
+
+
+		</div>
+		
+	</div>
+	<%- include('./partials/footer', {title: 'Resultados de tu búsqueda'}) %>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>

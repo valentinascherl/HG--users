@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <%- include('./partials/head') %>
+        <link rel="stylesheet" href="/stylesheets/homestyle.css">
+    </head>
+<body>
+	<!-- Header -->
+	<%- include('partials/header') %>
+	<!-- /Header -->
+    <main id="bajar" class="container-fluid">
+    <!-- todos los productos -->
+    <div class="col-12">
+        <h1 id="titulo">Todos los productos</h1>
+   </div>
+    <div class="container products-wrapper">
+        <div class="row">
+            <% for(product of products){ %>
+            <div class="col-12 col-sm-6 col-lg-4">
+                <section class="products-box">
+                    <a href="/productos/detalle/<%= product.producto_id %>">
+                        <figure class="products-box-image">
+                            <img src="/images/Productos/<%= product.imagen %>">
+                        </figure>
+                        <article class="product-box_data">
+                            <h2>$<%= product.precio %></h2>
+                            <% if(product.descuento !== 0){ %>
+                            <span><%= product.descuento %>% OFF</span>
+                            <%}%>
+                            <p><%= product.nombre %></p>
+                            <i class="fas fa-cart-arrow-down"></i>
+                        </article>
+                    </a>
+                </section>
+            </div>
+            <%}%>
+        </div>
+    </div>
+    <!-- /todos los productos -->
+    </main>
+
+    <!-- footer -->
+    <%- include('./partials/footer') %>
+	<!-- /footer -->
+</body>	
+</html>

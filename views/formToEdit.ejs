@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <!-- Include Head -->
+        <%- include('partials/head') %>
+        <link rel="stylesheet" href="/stylesheets/formularios.css">
+    </head>
+<body>
+    <!-- Header -->
+    <%- include('partials/header') %>
+    <!-- /Header -->
+    <div class="container products-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="products-title">Estás editando: <%= product.nombre %></h2>
+            </div>
+        </div>
+      
+        <div class="col-12">
+            <form action="/productos/<%= product.producto_id %>?_method=PUT" method="POST">
+                <div class="row product-detail">
+                    <div class="col-12 col-md-6">
+                        <label for="nombre" class="form-label">Nombre del producto:</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Zapatillas Reebok" class="form-input" value="<%= product.nombre %>">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="precio" class="form-label">Precio del producto:</label>
+                        <input type="text" id="precio" name="precio" placeholder="Ej: 5678" class="form-input" value="<%= product.precio %>">
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="descuento" class="form-label">Descuento:</label>
+                        <input type="text" id="descuento" name="descuento" placeholder="Ej: 15" class="form-input" value="<%= product.descuento %>">
+                    </div>
+
+             
+						<input type="hidden" id="producto_id" name="producto_id" placeholder="" class="form-input" value="<%= product.producto_id %>">
+
+                    
+                    <div class="col-12 col-md-6">
+                        <label for="categoria" class="form-label">Categoría:</label>
+                        <select name="categoria" id="categoria" class="form-input">
+                            <option disabled value="">Elegí</option>
+                            <option <% if(product.categoria == "in-sale") { %> selected <% } %> value="in-sale">En oferta</option>
+							<option <% if(product.categoria == "visited") { %> selected <% } %> value="visited">Últimos agregados</option>
+                        </select>
+                    </div>
+                    <div class="col-12 col-md-6">
+						<label for="seccion" class="form-label">Sección:</label>
+						<select name="seccion" id="seccion" class="form-input">
+                            <option disabled value="">Elegí</option>
+                            <option <% if(product.seccion == "cardio") { %> selected <% } %> value="in-sale">Cardio</option>
+							<option <% if(product.seccion == "musculacion") { %> selected <% } %> value="visited">Musculación</option>
+                            <option <% if(product.seccion == "accesorios") { %> selected <% } %> value="in-sale">Accesorios</option>
+				
+						</select>
+					</div>
+                    <div class="col-12">
+                        <label for="descripcion" class="form-label">Descipción:</label>
+                        <textarea name="descripcion" id="descripcion" class="form-input"><%= product.descripcion %></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="buy-now-button">Guardar producto</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- /todos los productos -->
+    <!-- footer -->
+    <%- include('partials/footer') %>
+    <!-- /footer -->
+</body> 
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<!-- Include Head -->
+<%- include('partials/head') %>
+<link rel="stylesheet" href="/stylesheets/formularios.css">
+</head>
+<body>
+	<!-- Header -->
+	<%- include('partials/header') %>
+    <!-- /Header -->
+    <div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Formulario de creación de productos</h2>
+			</div>
+		</div>
+		<div class="col-12">
+			<form action="/productos" method="POST">
+				<div class="row product-detail">
+					<div class="col-12 col-md-6">
+						<label for="nombre" class="form-label">Nombre del producto:</label>
+						<input type="text" id="nombre" name="nombre" placeholder="Ej: Zapatillas Reebok" class="form-input">
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="precio" class="form-label">Precio del producto:</label>
+						<input type="text" id="precio" name="precio" placeholder="Ej: 5678" class="form-input">
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="descuento" class="form-label">Descuento:</label>
+						<input type="text" id="descuento" name="descuento" placeholder="Ej: 15" class="form-input">
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="marca" class="form-label">Marca:</label>
+						<input type="text" id="marca" name="marca" placeholder="Ej: Full-Iron" class="form-input">
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="modelo" class="form-label">Modelo:</label>
+						<input type="text" id="modelo" name="modelo" placeholder="Ej: Año 2005" class="form-input">
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="tamano" class="form-label">Tamano:</label>
+						<input type="text" id="tamano" name="tamano" placeholder="Ej: 2 x 1 metros" class="form-input">
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="producto_id" class="form-label">id:</label>
+						<input type="text" id="producto_id" name="producto_id" placeholder="revisar cual es ultimo id" class="form-input">
+					</div>
+
+					<div class="col-12 col-md-6">
+						<label for="categoria" class="form-label">Categoría:</label>
+						<select name="categoria" id="categoria" class="form-input">
+							<option value="">Elegí</option>
+							<option value="in-sale">En oferta</option>
+							<option value="new">Nuevos productos</option>
+						</select>
+					</div>
+					<div class="col-12 col-md-6">
+						<label for="seccion_id" class="form-label">Sección:</label>
+						<select name="seccion_id" id="seccion_id" class="form-input">
+							<option value="">Elegí</option>
+							<option value="1">Cardio</option>
+							<option value="2">Musculación</option>
+							<option value="3">Accesorios</option>
+						</select>
+					</div>
+					<!--<div class="col-12 col-md-6">
+                        <label for="imagen" class="form-label">Imagen del producto:</label>
+                        <input type="file" class="form-input" style="height: calc(1em + .75rem + 8px);" id="imagen" name="imagen" accept="png, jpg, jpeg">
+
+					</div>
+				-->
+					<div class="col-12">
+						<label for="descripcion" >Descipción:</label>
+						<textarea name="descripcion" id="descripcion" class="form-input"></textarea>
+					</div>
+				
+					<div class="col-12">
+						<button type="submit" class="btn btn-danger" style="margin-bottom: 30px;" >Guardar producto</button>
+					</div>
+					
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<%- include('./partials/footer') %>
+</body>

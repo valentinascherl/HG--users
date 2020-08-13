@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+    <link rel="stylesheet" href="/stylesheets/perfil.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <%- include('./partials/header') %>
+
+    <main class="container-fluid">
+        <div class="container">
+            <div class="row ppal">
+                <div class="avatar col-lg-4">
+                    <img src="/images/users/<%= user.avatar %>" alt="foto de perfil">
+                </div>
+                <div class="col-lg-6">
+                    <section>
+                        <article>
+                            <h1><%= user.nombre %> <%= user.apellido %></h1>
+                        </article>
+                        <article class="datos">
+                            <h2>Email: <%= user.email %></h2>
+                            <h2>Contraseña:  <%= user.contrasena %></h2>
+                            <h2>Domicilio:  <%= user.domicilio %></h2>
+                            <h2>Ciudad:  <%= user.ciudad %></h2>
+                            <h2>Departamento:  <%= user.departamento %></h2>
+                            <h2>Codigo Postal:  <%= user.codigoPostal%></h2>
+                        </article>
+                        <article class="editar">
+                            <a href="/users/perfil/editarPerfil"> <input type="submit" value="Editar perfil" class="btn btn-dark" > </a>
+                        </article>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!--Footer-->
+    <%- include('./partials/footer') %>
+</body>
+
+</html>

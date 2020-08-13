@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<!-- 1. HACER UN CARROSUEL O ALGO PARA LAS IMAGENES DEL PRODUCTO.
+	2.CAMBIAR EL FONDO DEL INICIO/CARDIO ETC
+	3. SE SUBE CUANDO CAMBIA LA IMAGEN DE ABAJO . SE PUEDE HACER DE OTRA MANERA?
+-->
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HOME GYM</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="../public/stylesheets/detalle.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	<script src="https://kit.fontawesome.com/32d4ddb813.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<header class="main-header">
+		<div class="container header">
+			<div class="row align-items-center">
+				<div class="col-8">
+					<a href="/" class="main-header_home-link">
+						<img src="../public/images/Visuales/HomeGym1.png" class="imagen">
+					</a>
+				</div>
+				<div class="col-12">
+					<nav class="navbar navbar-expand-lg navbar-light bg-ligh">
+						<button class="navbar-toggler btn-nav-toggler" type="button" data-toggle="collapse"
+							data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+							aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+							<div class="navbar-nav">
+								<a class="nav-item nav-link active" href="#">Inicio<span
+										class="sr-only">(current)</span></a>
+								<a class="nav-item nav-link" href="#">Productos</a>
+								<a class="nav-item nav-link" href="#">Carrito de compras</a>
+								<a class="nav-item nav-link" href="#">Registrarme</a>
+								<a class="nav-item nav-link" href="#">Iniciar sesion</a>
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="container-fluid">
+
+		<div class="container main">
+			<div class="row  justify-content-center">
+				<div class="col-12 col-md-12">
+					<p class="nuevo"> <strong>Que puedo poner aca?</strong></p>
+				</div>
+
+
+				<!-- Container for the image gallery -->
+				<div class="container imagen col-6">
+
+					<!-- Full-width images with number text -->
+					<div>
+						<img src="../public/images/productos/spining.webp" style="width:100%;  height: 100%;">
+					</div>
+
+					
+					<section class="caracteristicas">
+						<h3 class="h3-caract col-12">Características</h3>
+						<article class="art col-12">
+							<i class="fas fa-hand-point-right"></i> Marca:
+							Gopro12<p></p>
+						</article>
+						<article class="art col-12">
+							<i class="fas fa-hand-point-right"></i> Modelo:
+							Gopro12<p></p>
+						</article>
+						<article class="art col-12">
+							<i class="fas fa-hand-point-right"></i> Tamaño:
+							20cm x 20cm
+						</article>
+					</section>
+		
+				</div>
+
+
+				<div class="col-6">
+					<div class="nombre col-12 col-md-12">
+						<h2 class="h2-detalle-nombre">Bicicleta Spinning</h2>
+					</div>
+					<p></p>
+
+					<div class="col-12 col-md-12">
+						<h2 class="h2-detalle-precio"> $62.999 </h2>
+					</div>
+
+					<div class="descripcion col-12">
+						<h3 class="h3-detalle-descripcion">Bicileta Spinning es una gran heramienta para entrenar en
+							casa! Ocupa poco espacio, apta para principiantes y expertos en el ciclismo!</h3>
+					</div>
+					<div class="stock col-12">
+						<h4 class="h4-detalle-stock"> En stock </h4>
+					</div>
+					<div class="envio col-12">
+						<a href="#"><i class="fas fa-truck"></i>
+							Información sobre precio y tiempo aproximado de envío.</a>
+
+					</div>
+					<div class="selecciona col-12">
+						<div class="color">
+							Color:
+							<form class="col-6">
+
+								<select name="cantidad" id="cantidad" style="width: 130px;">
+
+									<option value="Rojo">Rojo</option><br>
+									<option value="Negro">Negro</option><br>
+									<option value="Azul">Azul</option><br>
+
+								</select>
+							</form>
+						</div>
+
+
+						<div class="cantidad">
+							<form class="col-6">
+								Cantidad:
+								<select name="cantidad" id="cantidad" style="width: 130px;">
+
+									<option value="1">1</option><br>
+									<option value="2">2</option><br>
+									<option value="3">3</option><br>
+
+								</select>
+							</form>
+						</div>
+					</div>
+					<div class="botones">
+						<div class="btn-comprar col-5">
+							<button type="button" class="btn-c"><i class="fas fa-coins"></i> COMPRAR AHORA</button>
+						</div>
+						<div class="btn-agregar col-6">
+							<button type="button" class="btn-a">
+								<i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
+						</div>
+					</div>
+					<div class="col-12">
+						<a href="#"> ←Seguir comprando</a>
+					</div>
+
+
+				</div>
+
+				<h5 class="h5-productos-relacionados col-12">PRODCUTOS RELACIONADOS</h5>
+
+
+				<p></p>
+
+
+
+				<!--Meto carrousel de waterwhell falta meter el css-->
+
+
+				<div id="carrousel">
+					<div class="container">
+						<div class="title col-md-12 text-center"> Waterwheel Owl Carousel 2</div>
+						<div class="col-md-12">
+							<div class="owl-carousel owl-theme">
+							  <img src="https://picsum.photos/300/300/?random&1">
+							  <img src="https://picsum.photos/300/300/?random&2">
+							  <img src="https://picsum.photos/300/300/?random&3">
+							  <img src="https://picsum.photos/300/300/?random&4">
+							  <img src="https://picsum.photos/300/300/?random&5">
+							  <img src="https://picsum.photos/300/300/?random&6">
+							  <img src="https://picsum.photos/300/300/?rando&7">
+							  <img src="https://picsum.photos/300/300/?random&8">
+							</div>
+						</div>
+					  <div class="text-center">
+						<button id="play-carousel" type="button" class="btn btn-dark">Play</button>
+						<div class="status"></div>
+					  </div>
+					</div>
+				</div>
+
+				<script>
+				$('.owl-carousel').owlCarousel({
+					center: true,
+					loop: true,
+					nav: true,
+					items: 5,
+					navText: ['<i class="fas fa-chevron-left"></i>','<i class="fas fa-chevron-right"></i>'],
+					responsive:{
+					  0:{
+						items: 2,
+					  },
+					  768:{
+						items: 3,
+					  },
+					  990:{
+						items: 5,
+					  }
+					},
+					onInitialized: coverFlowEfx,
+					onTranslate: coverFlowEfx,
+				  });
+				  
+				  function coverFlowEfx(e){
+					if ($('.owl-dots')) {
+					  $('.owl-dots').remove();
+					}
+					idx = e.item.index;
+					$('.owl-item.big').removeClass('big');
+					$('.owl-item.medium').removeClass('medium');
+					$('.owl-item.mdright').removeClass('mdright');
+					$('.owl-item.mdleft').removeClass('mdleft');
+					$('.owl-item.smallRight').removeClass('smallRight');
+					$('.owl-item.smallLeft').removeClass('smallLeft');
+					$('.owl-item').eq(idx -1).addClass('medium mdleft');
+					$('.owl-item').eq(idx).addClass('big');
+					$('.owl-item').eq(idx + 1).addClass('medium mdright');
+					$('.owl-item').eq(idx + 2).addClass('smallRight');
+					$('.owl-item').eq(idx - 2).addClass('smallLeft');
+				  }
+				  
+				  var click = false;
+				  
+				  $('#play-carousel').click(function(evt) {
+					click = !click;
+					if(click){
+					  $('.status').html('Autoplay: ON');
+					  $('.owl-carousel').trigger('play.owl.autoplay', [1000, 1000]);
+					  $(this).html("Stop");
+					} else {
+					  $('.owl-carousel').trigger('stop.owl.autoplay');
+					  $(this).html("Play");
+					  $('.status').html('Autoplay: OFF');
+					}
+				  
+				  });
+
+				</script>
+
+				<!--Termina carrousel waterwheel-->
+
+
+			</div>
+
+		
+
+
+			<footer>
+				<div class="container ">
+					<div class="row">
+						<div class="col-12">
+							<h2 class="tarjetas">Medios de pago</h2>
+						</div>
+						<nav class="col-12">
+							<ul class="medios">
+								<li><img src="../public/images/iconos/mastercardlogo.jpg" width="30px" height="20p">
+								</li>
+								<li><img src="../public/images/iconos/visa logo.png" width="30px" height="23p"></li>
+								<li><img src="../public/images/iconos/american logo.png" width="30px" height="25p">
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+
+
+
+
+
+
+
+				<div class="container">
+					<div class="row">
+						<div class="col-10">
+							<h2 class="contacto">Contacto</h2>
+						</div>
+						<nav class="col-12">
+							<ul class="redes">
+								<li class="wpps"><a href="tel:+5492614690057"><img
+											src="../public/images/iconos/what.png" width="30px"
+											height="25px">+5492614690057</a></li>
+								<li class="mail"><a href="mailto:info@homegym.com"><img
+											src="../public/images/iconos/mail.png" width="30px"
+											height="23px">info@homegym.com</a></li>
+								<li class="instagram"><a href="instagram.com"><img
+											src="../public/images/iconos/inst.png" width="44px"
+											height="40px">@homegym</a></li>
+								<li class="fb"><a href="facebook.com"><img src="../public/images/iconos/fb.png"
+											width="30px" height="20px">Home Gym</a></li>
+								<li class="tw"><a href="twitter.com"><img src="../public/images/iconos/tw.png"
+											width="30px" height="20px">@homgym</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-2 col-md-1"><img src="../public/images/Visuales/logo.png" width="40px"
+								height="50px" class="logofinal"></div>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+		integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+		crossorigin="anonymous"></script>
+</body>
+
+</html>
