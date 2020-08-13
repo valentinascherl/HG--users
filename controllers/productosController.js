@@ -60,8 +60,21 @@ let productosController = {
         res.render('formToCreate', { user: req.session.usuario });
 
     },
-    store: async (req, res) => {
-        try {
+    store:(req, res) => {
+            db.productos.create({
+                producto_id: req.body.producto_id,
+                nombre: req.body.nombre,
+                descripcion: req.body.descripcion,
+                precio: parseFloat(req.body.precio),
+                marca: req.body.marca,
+                modelo: req.body.modelo,
+                tamano: req.body.tamano,
+                seccion_id: req.body.seccion_id,
+                descuento: parseFloat(req.body.descuento),
+                categoria: parseInt(req.body.categoria)
+            })
+            res.redirect("/productos");
+        /*try {
             console.log(req.body.nombre)
             await db.productos.create({
                 producto_id: req.body.producto_id,
@@ -75,12 +88,11 @@ let productosController = {
                 descuento: parseFloat(req.body.descuento),
                 categoria: parseInt(req.body.categoria)
             });
-            const mensaje = "Exito";
-            res.render("", {mensaje});
+            res.send("exito");
 
         } catch (error) {
             res.render("error", {error});
-        }
+        }*/
     },
 
 

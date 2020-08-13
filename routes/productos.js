@@ -23,7 +23,7 @@ router.get("/detalle/:id", productosController.detail);   //GET - Muestra el det
 
 
 router.get('/crear', productosController.create); /* GET - Form to create */
-router.post('/', productosController.store); /* POST - Store in DB */
+router.post('/crear', productosController.store); /* POST - Store in DB */
 
 router.get('/:id/editar', productosController.edit); /* GET - Form to create */
 router.put('/:id/editar', productosController.update);  /*PUT - Update in DB */
