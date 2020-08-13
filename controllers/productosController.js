@@ -60,20 +60,20 @@ let productosController = {
         res.render('formToCreate', { user: req.session.usuario });
 
     },
-    store:(req, res) => {
-            db.productos.create({
-                producto_id: req.body.producto_id,
-                nombre: req.body.nombre,
-                descripcion: req.body.descripcion,
-                precio: parseFloat(req.body.precio),
-                marca: req.body.marca,
-                modelo: req.body.modelo,
-                tamano: req.body.tamano,
-                seccion_id: req.body.seccion_id,
-                descuento: parseFloat(req.body.descuento),
-                categoria: parseInt(req.body.categoria)
-            })
-            res.redirect("/productos");
+    store: (req, res) => {
+        db.productos.create({
+            producto_id: req.body.producto_id,
+            nombre: req.body.nombre,
+            descripcion: req.body.descripcion,
+            precio: parseFloat(req.body.precio),
+            marca: req.body.marca,
+            modelo: req.body.modelo,
+            tamano: req.body.tamano,
+            seccion_id: req.body.seccion_id,
+            descuento: parseFloat(req.body.descuento),
+            categoria: parseInt(req.body.categoria)
+        })
+        res.redirect("/productos");
         /*try {
             console.log(req.body.nombre)
             await db.productos.create({
@@ -96,68 +96,68 @@ let productosController = {
     },
 
 
-        edit: async (req, res) => {
+    edit: async (req, res) => {
+        {
+            res.locals.title = "Editar";
             try {
-                const products = await db.productos.findOne({
-                    where: {
-                        producto_id: req.params.producto_id
-                    }
-                });
-                console.log(products)
-                res.render("formToEdit", { products, formatPrice, toThousand, user: req.session.usuario });
+                const products = await db.productos.findByPk(req.params.id);
+                res.render("formToEdit", { products });
             } catch (error) {
-                res.render("error", { message: error });
+                res.render("error", { error });
             }
-        },
-            update: async (req, res) => {
+        }
 
-                res.locals.title = "Editar";
-                try {
-                    const products = await db.productos.update({
-                        where: {
-                            id: req.body.id
-                        }
-                    });
-                    res.render("formToEdit", { products, formatPrice, toThousand, user: req.session.usuario });
-                } catch (error) {
-                    res.render("error", { message: error });
+    },
+    update: async (req, res) => {
+
+        res.locals.title = "Editar";
+        try {
+            const products = await db.productos.update({
+            },{
+                where: {
+                    id: req.body.id
                 }
-            },
+            });
+            res.render("formToEdit", { products, formatPrice, toThousand, user: req.session.usuario });
+        } catch (error) {
+            res.render("error", { message: error });
+        }
+    },
 
-                delete: (req, res) => {
-                    res.locals.title = "Eliminar";
-                    db.productos.destroy({
-                        where: {
-                            id: req.body.id
-                        }
-                    })
-                        .then((product) => {
-                            let mensaje = 'El producto se eleminó correctamente.';
-                            res.render("/", { mensaje })
-                        }).catch((error) => {
-                            res.render("/", { error })
-                        });
-                },
-                    admin: async (req, res) => {        //GET - Muestra todos los productos
-                        res.locals.title = "Todos los productos para editar";
-                        try {
-                            const products = await db.productos.findAll();
+    delete: (req, res) => {
+        res.locals.title = "Eliminar";
+        db.productos.destroy({
+            where: {
+                id: req.body.id
+            }
+        })
+            .then((product) => {
+                let mensaje = 'El producto se eleminó correctamente.';
+                res.render("/", { mensaje })
+            }).catch((error) => {
+                res.render("/", { error })
+            });
+    },
+    admin: async (req, res) => {        //GET - Muestra todos los productos
+        res.locals.title = "Todos los productos para editar";
+        try {
+            const products = await db.productos.findAll();
 
-                            res.render("admin", { products, formatPrice, toThousand, user: req.session.usuario });
-                        } catch (error) {
-                            res.render("error", { message: error });
-                        }
-                    },
-                        detail: async (req, res) => {
-                            db.productos.findByPk(req.params.id)
-                                .then(function (product) {
-                                    res.render('detalle', { product, formatPrice, toThousand, user: req.session.usuario });
-                                })
-                                .catch(function (e) {
-                                    console.log(e)
-                                    res.render("error", { error: e })
-                                });
-                        },
+            res.render("admin", { products, formatPrice, toThousand, user: req.session.usuario });
+        } catch (error) {
+            res.render("error", { message: error });
+        }
+    },
+    detail: async (req, res) => {
+        db.productos.findByPk(req.params.id)
+            .then(function (product) {
+                res.render('detalle', { product, formatPrice, toThousand, user: req.session.usuario });
+            })
+            .catch(function (e) {
+                console.log(e)
+                res.render("error", { error: e })
+            });
+    },
 }
 
 
