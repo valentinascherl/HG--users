@@ -29,28 +29,6 @@ addEventListener('load', function () {
                 emailLog.style.border = "1px solid #CF664F";
             }
 
-            // VALIDACIÓN DEL CAMPO CONTRASEÑA DE LA VISTA LOGIN
-            let passLog = document.getElementsByClassName('contrasena');
-            let passLogContent = passLog.value;
-            let emptyPass = form.querySelector('div.emptyPassLog');
-            let invalidPass = form.querySelector('div.invalidPassLog');
-            let regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
-            //let iconoKey = form.querySelector('i#keyIconLog');
-            if (passLogContent == '') {
-                e.preventDefault();
-                emptyPass.innerHTML = '<p>' + 'Por favor, ingresá tu contraseña' + '</p>';
-            } else {
-                emptyPass.innerHTML = '';
-            }
-
-            if (!regExp.test(passLogContent) && passLogContent != '') {
-                event.preventDefault();
-                invalidPass.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita' + '</p>';
-                passLog.style.border = "1px solid red";
-            } else {
-                invalidPass.innerHTML = '';
-                passLog.style.border = "1px solid #ced4da";
-            }
         })
     }
 })

@@ -1,5 +1,6 @@
 const fs=require('fs');
-
+const db = require('../database/models');
+const { Op } = require('sequelize');
 
 let carritoController = {
     carrito: function(req, res, next) {
