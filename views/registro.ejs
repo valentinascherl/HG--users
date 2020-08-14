@@ -34,39 +34,42 @@
             <div class="row justify-content-center">
                 <div class="registrarse">
                     <h2 class="titulo col-12">Registrarme</h2>
-                    <form method="POST" action="/users/registro" id="formRegistro">
+                    <form method="POST" action="/users/registro" id="registerForm">
                         <div class="form-row">
                             <div class="form-group col-12 col-md-6">
                                 <label for="inputEmail4">Nombre</label>
                                 <input type="text" class="form-control nombre" id="inputEmail4" name="nombre" required>
-                                <div style="color:red" class="nombre-invalido"></div>
+                                <div class="emptyName logErrors" style="color: red;"></div>
                             </div>
                             <div class="form-group col-12 col-md-6">
                                 <label for="inputPassword4">Apellido</label>
                                 <input type="text" class="form-control apellido" id="inputPassword4" name="apellido" required>
-                                <div class="apellido-invalido"></div>
                             </div>
 
                         </div>
                         <div class="form-group">
                             <label for="avatar"><strong>Elige una foto que represente: </strong></label>
                             <p></p>
-                            <input type="file" id="avatar" name="avatar" accept=".jpg,.png">
+                            <input type="file" id="avatar" name="avatar" accept=".jpg,.png, .jpeg, .gif">
+                            <div class="emptyAvatar logErrors"></div>
+                            <div class=" invalidAvatar logErrors"></div>
                         </div>
                         <div class="form-row">
 
                             <div class="form-group col-12 col-md-6">
                                 <label for="inputEmail4">Email</label>
-                                <input type="email" class="form-control email" id="inputEmail4" name="email" required>
+                                <input type="email" class="form-control emailcito" id="inputEmail4" name="email" required>
                                 <small>Nadie sabrá tu dirección de email.
                                 </small>
-                                <div class="email-invalido"></div>
+                                <div class="invalidRegEmail logErrors"></div>
+                                <div class="emptyRegEmail logErrors"></div>
                             </div>
                             <div class="form-group col-12 col-md-6">
                                 <label for="inputPassword4">Contraseña</label>
                                 <input type="password" class="form-control contrasena" id="inputPassword4" name="contrasena"
                                     required>
-                                    <div class="contrasena-invalida"></div>
+                                <div class="emptyPassReg logErrors" style="color: red;"></div>
+                                <div class="invalidPassReg logErrors" style="color: red;"></div>
                             </div>
                         </div>
                         <div class="form-group">

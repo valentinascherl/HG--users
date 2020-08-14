@@ -1,42 +1,99 @@
-let nombre = document.getElementById("name");
-let descripcion = document.getElementById("description");
-let form = document.getElementById("form");
+addEventListener('load', function() {
 
-let errores = [];
-nombre.addEventListener("blur", function(){
-    if(nombre.value == ""){
-        errores.push("El campo nombre debe estar completo");
-        document.querySelector('.nombre-invalido').innerHTML = '<li>Este campo debe estar completo.</li>'
-    } else if (nombre.value.length < 2){
-        document.querySelector('.nombre-invalido').innerHTML = '<li> El nombre del producto debe tener al menos 5 caracteres </li>';
-        errores.push("El nombre del producto debe tener al menos 5 caracteres");
+
+    let formEdit = document.getElementById('productEdit');
+    formEdit.addEventListener('submit', function(ebe) {
+
+
+        // VALIDACIÓN DEL CAMPO NOMBRE DE PRODUCTO
+        let nameProduct = document.getElementById('nombre');
+        let namePContent = nameProduct.value;
+        let namePLength = namePContent.length >= 5 ? true : false;
+        let emptyNameP = document.getElementById('emptyNameEdit');
+        let invalidName = document.getElementById('invalidNameEdit');
+
+        if (namePContent == '') {
+            ebe.preventDefault();
+            emptyNameP.innerHTML = '<p>' + 'Ingresá el nombre del producto' + '</p>';
+            nameProduct.style.border = "1px solid red";
         } else {
-        document.querySelector('.nombre-invalido').innerHTML = ""
-        let error1 = errores.indexOf("El nombre debe tener al menos 5 caracteres")
-        if (error1 > -1){
-            errores.splice(error1, 1);
+            emptyNameP.innerHTML = '';
+            nameProduct.style.border = "1px solid #ced4da";
         }
-        let error2 = errores.indexOf("El campo nombre debe estar completo")
-        if (error2 > -1){
-            errores.splice(error2, 1);
-        }
-    }
-});
-descripcion.addEventListener("blur", function(){
-    if (descripcion.value == ""){
-        errores.push("Este Campo debe contener al menos 20 caracteres");
-        document.querySelector('.descripcion-invalido').innerHTML = '<li>Este Campo debe contener al menos 20 caracteres</li>';
+
+        if (namePContent != '' && !namePLength) {
+            ebe.preventDefault();
+            invalidName.innerHTML = '<p>' + 'Debe tener al menos 5 caracteres' + '</p>';
+            nameProduct.style.border = "1px solid #CF664F";
         } else {
-        document.querySelector('.descripcion-invalido').innerHTML = ""
-        let error = errores.indexOf("Este Campo debe contener al menos 20 caracteres")
-        if (error > -1){
-            errores.splice(error, 1)
+            invalidName.innerHTML = ''
+            nameProduct.style.border = "1px solid #ced4da";
         }
-    }
-});
-form.addEventListener("submit", function(e){
-    console.log(errores);
-    if (errores.length > 0){
-    e.preventDefault();
-    }
-});
+
+        // VALIDACIÓN DEL CAMPO DESCRIPCIÓN BREVE DE PRODUCTO
+        let shortDes = document.getElementById('description_short');
+        let contentSD = shortDes.value;
+        let SDLength = contentSD.length >= 20 ? true : false;
+        let emptySD = document.getElementById('emptyshortDes');
+        let invalidSD = document.getElementById('invalidshortDes');
+
+        if (contentSD == '') {
+            ebe.preventDefault();
+            emptySD.innerHTML = '<p>' + 'Ingresá una descripción breve' + '</p>';
+            shortDes.style.border = "1px solid #CF664F";
+        } else {
+            emptySD.innerHTML = '';
+            shortDes.style.border = "1px solid #ced4da";
+        }
+
+        if (contentSD != '' && !SDLength) {
+            ebe.preventDefault();
+            invalidSD.innerHTML = '<p>' + 'Debe tener entre 20 y 150 caracteres' + '</p>';
+            shortDes.style.border = "1px solid #CF664F";
+        } else {
+            invalidSD.innerHTML = ''
+            shortDes.style.border = "1px solid #ced4da";
+        }
+
+
+        // VALIDACIÓN DEL CAMPO DESCRIPCIÓN COMPLETA DE PRODUCTO
+        let description = document.getElementById('descripcion');
+        let descriptionContent = description.value;
+        let descriptionLength = descriptionContent.length >= 20 ? true : false;
+        let emptyDescription = document.getElementById('emptyDescription');
+        let invalidDescription = document.getElementById('invalidDescription');
+
+        if (descriptionContent == '') {
+            ebe.preventDefault();
+            emptyDescription.innerHTML = '<p>' + 'Ingresá una descripción' + '</p>';
+            description.style.border = "1px solid #CF664F";
+        } else {
+            emptyDescription.innerHTML = '';
+            description.style.border = "1px solid #ced4da";
+        }
+
+        if (descriptionContent != '' && !descriptionLength) {
+            ebe.preventDefault();
+            invalidDescription.innerHTML = '<p>' + 'Debe tener entre 20 y 500 caracteres' + '</p>';
+            description.style.border = "1px solid #CF664F";
+        } else {
+            invalidDescription.innerHTML = ''
+            description.style.border = "1px solid #ced4da";
+        }
+
+        // VALIDACIÓN DE LA IMAGEN DE PRODUCTO
+        let img = document.getElementById('image');
+        let imgContent = img.value;
+        extensionImg = (imgContent.substring(imgContent.lastIndexOf("."))).toLowerCase();
+        let invalidImg = document.getElementById('invalidImg');
+
+        if (imgContent != '' && extensionImg != '.jpg' && extensionImg != '.png' && extensionImg != '.jpeg' && extensionImg != '.gif') {
+            ebe.preventDefault();
+            invalidImg.innerHTML = "<p>" + 'Solo podés cargar archivos jpg, png, jpeg o gif' + '</p>';
+        } else {
+            invalidImg.innerHTML = "";
+        }
+    })
+
+
+})

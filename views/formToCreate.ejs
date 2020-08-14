@@ -33,11 +33,13 @@
 			</div>
 		</div>
 		<div class="col-12">
-			<form action="/productos/crear" method="POST">
+			<form action="/productos/crear" method="POST" id="productEdit">
 				<div class="row product-detail">
 					<div class="col-12 col-md-6">
 						<label for="nombre" class="form-label">Nombre del producto:</label>
 						<input type="text" id="nombre" name="nombre" placeholder="Ej: Zapatillas Reebok" class="form-input">
+						<div id="emptyNameEdit" style="color: red;" class="logErrors"></div>
+                        <div id="invalidNameEdit" style="color: red;" class="logErrors"></div>
 					</div>
 					<div class="col-12 col-md-6">
 						<label for="precio" class="form-label">Precio del producto:</label>
@@ -90,7 +92,9 @@
 						<label for="descripcion" >Descipción:</label>
 						<textarea name="descripcion" id="descripcion" class="form-input"></textarea>
 					</div>
-				
+					<div id="emptyDescription" class="logErrors"></div>
+                    <div id="invalidDescription" class="logErrors"></div>
+
 					<div class="col-12">
 						<button type="submit" class="btn btn-danger" style="margin-bottom: 30px;" >Guardar producto</button>
 					</div>
@@ -101,4 +105,6 @@
 
 	</div>
 	<%- include('./partials/footer') %>
+	 <script type='text/javascript' src="/js/productosValidator.js">
+	</script>>
 </body>

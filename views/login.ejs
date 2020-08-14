@@ -40,18 +40,26 @@
 
                 <div class="iniciar-sesion">
                     <h2 class="titulo col-12">Inciar Sesión</h2>
-                    <form method="POST" action="/users/login">
+                    <form method="POST" action="/users/login" id="loginForm">
 
                         <div class="form-row">
                             <div class="form-group col-12 col-md-12">
                                 <label for="inputEmail4">Email</label>
-                                <input type="email" class="form-control" id="inputEmail4" name="email" required>
+                                <input type="email" class="form-control email" id="inputEmail4" name="email" required>
                                <small>Nadie sabrá tu dirección de email.
                                 </small>
+                                <div>
+                                    <div class="invalidEmail logErrors"></div>
+                                    <div class="emptyEmail logErrors"></div>
+        
+                                </div>
                             </div>
                             <div class="form-group col-12 col-md-12">
                                 <label for="inputPassword4">Contraseña</label>
-                                <input type="password" class="form-control" id="inputPassword4" name="contrasena" required>
+                                <input type="password" class="form-control contrasena" id="inputPassword4" name="contrasena" required>
+                                
+                                <div class="emptyPassLog logErrors" style="color:red"></div>
+                                <div class="invalidPassLog logErrors" style="color:red"></div>
                             </div>
                             <a href="#">
                                 <h4 class="col-12">Olvidé mi contraseña</h4>
@@ -76,6 +84,7 @@
 
     </div>
     <%- include('./partials/footer') %>
+    <script type='text/javascript' src="/js/loginValidator.js"></script>
 
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
