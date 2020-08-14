@@ -18,8 +18,8 @@ var upload = multer({
     storage: storage,
     fileFilter: function (req, file, callback) {
       var ext = path.extname(file.originalname);
-      if(ext !== '.png' && ext !== '.jpg' && ext !== '.jpeg') {
-          return callback(new Error('El avatar sólo puede ser imagen JPG, PNG, JPEG.'))
+      if(ext !== '.png' && ext !== '.jpg' && ext !== '.jpeg' && ext !== '.gif') {
+          return callback(new Error('El avatar sólo puede ser imagen JPG, PNG, JPEG, GIF.'))
         }
       callback(null, true)
     }

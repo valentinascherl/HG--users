@@ -7,32 +7,32 @@
         </head>
 
 <body class="body">
-    <%
-      if (typeof(mensaje) != "undefined" || typeof(status) != "undefined"){
-         if(status == "success"){ %>
-            <div class="alert alert-success" role="alert">
-               <%=mensaje%>
-            </div>
-      <% } else if(status == "error"){ %>
-         <div class="alert alert-danger" role="alert">
-            <%=mensaje%>
-         </div>
-      <% }
-      }
-      if (typeof(errors) != "undefined"){ %>
-        <div class="alert alert-warning" role="alert">
-           <ul>
-              <% errors.forEach((e,i) => { %>
-              <li> <%= e.msg %></li>
-              <% }); %>
-           </ul>
-        </div>
-     <% } %>
     <%- include('./partials/header') %>
     <div class="container-fluid">
         <div class="banner-logueo">
             <img src="/images/Visuales/9.png" width="100%">
         </div>
+        <%
+        if (typeof(mensaje) != "undefined" || typeof(status) != "undefined"){
+           if(status == "success"){ %>
+              <div class="alert alert-success" role="alert">
+                  <i class="fas fa-check"></i><strong><%=mensaje%></strong>
+              </div>
+        <% } else if(status == "error"){ %>
+           <div class="alert alert-danger" role="alert">
+              <i class="fas fa-times"></i><strong> <%=mensaje%></strong>
+           </div>
+        <% }
+        }
+        if (typeof(errors) != "undefined"){ %>
+          <div class="alert alert-warning" role="alert">
+             <ul style="list-style: none">
+                <% errors.forEach((e,i) => { %>
+                  <li style="color: red">  <i class="fas fa-times"></i> <strong><%= e.msg %></strong></li>
+                <% }); %>
+             </ul>
+          </div>
+       <% } %>
         <div class="container main">
     
  

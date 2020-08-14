@@ -5,6 +5,9 @@ const db = require("../database/models");
 const { check, validationResult, body } = require("express-validator");
 
 
+const productsFilePath = path.join(__dirname, '../data/products.json');
+const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+
 
 let registroController = {
     registro: function (req, res, next) {

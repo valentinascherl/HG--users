@@ -7,6 +7,22 @@
 </head>
 
 <body>
+    <% if (typeof(mensaje) != "undefined") { %>
+        <p style="color: green; font-size: 20px;"><i class="fas fa-check"></i><strong> <%= mensaje %></strong> </p>
+        <% } %>
+    
+        <% if (typeof errors != 'undefined') { %>
+            <div  class="alert alert-warning"  role="alert">
+        <p style="color:red">Se han encontrado 1 o varios errores:</p>
+        <ul  style="list-style: none">
+            <% for (var i = 0; i < errors.length; i++){ %>
+            <li style="color:red">
+                <i class="fas fa-times"></i><strong> <%= errors[i].msg %></strong>
+            </li>
+            <% } %>
+        </ul>
+            </div>
+        <% } %>
     <!-- Header -->
     <%- include('./partials/header') %>
 
