@@ -2,6 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const db = require('../database/models');
 const { Op } = require('sequelize');
+const { check, validationResult, body } = require("express-validator");
+
 const toThousand = num => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const formatPrice = (price, discount) => toThousand(Math.round(price * (1 - (discount / 100))));
 
@@ -61,6 +63,10 @@ let productosController = {
 
     },
     store: (req, res) => {
+        res.locals.title = "Creacion de productos";
+        let errors = validationResult(req);
+
+        if (errors.isEmpty()) {
         db.productos.create({
             producto_id: req.body.producto_id,
             nombre: req.body.nombre,
@@ -73,26 +79,10 @@ let productosController = {
             descuento: parseFloat(req.body.descuento),
             categoria: parseInt(req.body.categoria)
         })
-        res.redirect("/productos");
-        /*try {
-            console.log(req.body.nombre)
-            await db.productos.create({
-                producto_id: req.body.producto_id,
-                nombre: req.body.nombre,
-                descripcion: req.body.descripcion,
-                precio: parseFloat(req.body.precio),
-                marca: req.body.marca,
-                modelo: req.body.modelo,
-                tamano: req.body.tamano,
-                seccion_id: req.body.seccion_id,
-                descuento: parseFloat(req.body.descuento),
-                categoria: parseInt(req.body.categoria)
-            });
-            res.send("exito");
-
-        } catch (error) {
-            res.render("error", {error});
-        }*/
+        return res.redirect("/productos");
+       }else{
+        return res.render("formToCreate", { errors: errors.errors, user: req.session.usuario});
+       }
     },
 
 

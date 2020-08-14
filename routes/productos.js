@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var productosController = require('../controllers/productosController');
-
+var productValidator = require('../middlewares/productValidator');
 
 /* GET todos los productos. */
 router.get('/', productosController.productos);/* GET - All products */
@@ -23,7 +23,7 @@ router.get("/detalle/:id", productosController.detail);   //GET - Muestra el det
 
 
 router.get('/crear', productosController.create); /* GET - Form to create */
-router.post('/crear', productosController.store); /* POST - Store in DB */
+router.post('/crear', productValidator, productosController.store); /* POST - Store in DB */
 
 router.get('/:id/editar', productosController.edit); /* GET - Form to create */
 router.put('/:id/editar', productosController.update);  /*PUT - Update in DB */
