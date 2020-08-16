@@ -29,33 +29,6 @@ addEventListener('load', function() {
             invalidName.innerHTML = ''
             nameProduct.style.border = "1px solid #ced4da";
         }
-
-        // VALIDACIÓN DEL CAMPO DESCRIPCIÓN BREVE DE PRODUCTO
-        let shortDes = document.getElementById('description_short');
-        let contentSD = shortDes.value;
-        let SDLength = contentSD.length >= 20 ? true : false;
-        let emptySD = document.getElementById('emptyshortDes');
-        let invalidSD = document.getElementById('invalidshortDes');
-
-        if (contentSD == '') {
-            ebe.preventDefault();
-            emptySD.innerHTML = '<p>' + 'Ingresá una descripción breve' + '</p>';
-            shortDes.style.border = "1px solid #CF664F";
-        } else {
-            emptySD.innerHTML = '';
-            shortDes.style.border = "1px solid #ced4da";
-        }
-
-        if (contentSD != '' && !SDLength) {
-            ebe.preventDefault();
-            invalidSD.innerHTML = '<p>' + 'Debe tener entre 20 y 150 caracteres' + '</p>';
-            shortDes.style.border = "1px solid #CF664F";
-        } else {
-            invalidSD.innerHTML = ''
-            shortDes.style.border = "1px solid #ced4da";
-        }
-
-
         // VALIDACIÓN DEL CAMPO DESCRIPCIÓN COMPLETA DE PRODUCTO
         let description = document.getElementById('descripcion');
         let descriptionContent = description.value;
@@ -82,7 +55,7 @@ addEventListener('load', function() {
         }
 
         // VALIDACIÓN DE LA IMAGEN DE PRODUCTO
-        let img = document.getElementById('image');
+        let img = document.getElementById('imagen');
         let imgContent = img.value;
         extensionImg = (imgContent.substring(imgContent.lastIndexOf("."))).toLowerCase();
         let invalidImg = document.getElementById('invalidImg');

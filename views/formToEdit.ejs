@@ -33,11 +33,13 @@
         </div>
       
         <div class="col-12">
-            <form action="/productos/<%= products.producto_id %>?_method=PUT/editar" method="POST">
+            <form action="/productos/<%= products.producto_id %>?_method=PUT/editar" method="POST" id="productEdit">
                 <div class="row product-detail">
                     <div class="col-12 col-md-6">
                         <label for="nombre" class="form-label">Nombre del producto:</label>
                         <input type="text" id="nombre" name="nombre" placeholder="Ej: Zapatillas Reebok" class="form-input" value="<%= products.nombre %>">
+                        <div id="emptyNameEdit" style="color: red;" class="logErrors"></div>
+                        <div id="invalidNameEdit" style="color: red;" class="logErrors"></div>
                     </div>
                     <div class="col-12 col-md-6">
                         <label for="precio" class="form-label">Precio del producto:</label>
@@ -69,6 +71,11 @@
                             <option <% if(products.seccion == "accesorios") { %> selected <% } %> value="in-sale">Accesorios</option>
 				
 						</select>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <label for="imagen" class="form-label">Imagen del producto:</label>
+                        <input type="file" class="form-input" style="height: calc(1em + .75rem + 8px);" id="imagen" name="imagen" accept="png, jpg, jpeg">
+
 					</div>
                     <div class="col-12">
                         <label for="descripcion" class="form-label">Descipción:</label>
@@ -85,5 +92,6 @@
     <!-- footer -->
     <%- include('partials/footer') %>
     <!-- /footer -->
+    <script type='text/javascript' src="/js/productosValidator.js"></script>
 </body> 
 </html>
