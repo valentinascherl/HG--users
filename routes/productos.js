@@ -26,7 +26,7 @@ router.get('/crear', productosController.create); /* GET - Form to create */
 router.post('/crear', productValidator, productosController.store); /* POST - Store in DB */
 
 router.get('/:id/editar', productosController.edit); /* GET - Form to create */
-router.put('/:id/editar', productosController.update);  /*PUT - Update in DB */
+router.put('/editar/:id', productosController.update);  /*PUT - Update in DB */
 
 router.delete('/eliminar/:id', productosController.delete); /* DELETE - Delete from DB */
 

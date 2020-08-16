@@ -3,10 +3,11 @@ const db = require('../database/models');
 const { Op } = require('sequelize');
 
 let carritoController = {
-  carrito: function (req, res) {
+  carrito: async (req, res)=> {
     res.locals.title = "Carrito de Compras";
+    user = req.session.user;
     //res.render('carrito');
-    db.productos.findByPk(req.params.id)
+    /*db.productos.findByPk(req.params.id)
       .then(function (producto) {
 
         res.render('carrito', { producto: producto, user: req.session.usuario });
@@ -14,7 +15,21 @@ let carritoController = {
       })
       .catch(function (e) {
         console.log(e)
-      });
+      });*/
+      db.carritos.findAll({
+
+				where: {
+					usuario_id: user.id
+				},
+				include: ['productos', 'usuarios']
+
+			  })
+				.then(function (userCart) {
+                   console.log(userCart)
+					return res.render('carrito', { userCart })
+				})
+				.catch(error => console.log(error));
+
   },
   carritoAdd: function(req, res){
       let errors = validationResult(req);

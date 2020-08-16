@@ -33,7 +33,7 @@
         </div>
       
         <div class="col-12">
-            <form action="/productos/<%= products.producto_id %>?_method=PUT/editar" method="POST" id="productEdit">
+            <form action="/productos/editar/<%= products.producto_id %>?_method=PUT" method="POST" id="productEdit">
                 <div class="row product-detail">
                     <div class="col-12 col-md-6">
                         <label for="nombre" class="form-label">Nombre del producto:</label>
@@ -73,8 +73,8 @@
 						</select>
                     </div>
                     <div class="col-12 col-md-6">
-                        <label for="imagen" class="form-label">Imagen del producto:</label>
-                        <input type="file" class="form-input" style="height: calc(1em + .75rem + 8px);" id="imagen" name="imagen" accept="png, jpg, jpeg">
+                        <label for="imagen" class="form-label">Imagen del producto: <%= products.imagen %></label>
+                        <input type="file" class="form-input" style="height: calc(1em + .75rem + 8px);" id="imagen" name="imagen" accept="png, jpg, jpeg" value="<%= products.imagen %>">
                         <div id="invalidImg" class="logErrors"></div>
 
 					</div>

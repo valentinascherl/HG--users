@@ -87,38 +87,69 @@ let productosController = {
 
 
     edit: async (req, res) => {
-        {
             res.locals.title = "Editar";
-            try {
+            db.productos.findByPk(req.params.id)
+
+			.then(function (producto) {
+				console.log(producto)
+
+				products = producto;
+
+				console.log(products)
+
+				res.render('formToEdit', { products });
+
+			})
+
+			.catch(error => console.log(error));
+            /*try {
                 const products = await db.productos.findByPk(req.params.id);
                 res.render("formToEdit", { products });
             } catch (error) {
                 res.render("error", { error });
             }
-        }
+        }*/
 
     },
-    update: async (req, res) => {
+    update:  (req, res) => {
 
         res.locals.title = "Editar";
-        try {
-            const products = await db.productos.update({
-            },{
-                where: {
-                    id: req.body.id
-                }
-            });
-            res.render("formToEdit", { products, formatPrice, toThousand, user: req.session.usuario });
-        } catch (error) {
-            res.render("error", { message: error });
-        }
+        db.productos.update({
+            producto_id: req.body.producto_id,
+            nombre: req.body.nombre,
+            descripcion: req.body.descripcion,
+            precio: parseFloat(req.body.precio),
+            marca: req.body.marca,
+            modelo: req.body.modelo,
+            tamano: req.body.tamano,
+            seccion_id: req.body.seccion_id,
+            descuento: parseFloat(req.body.descuento),
+            categoria: parseInt(req.body.categoria)
+
+
+		}, {
+
+			where:
+				{ producto_id: req.params.id }
+		})
+
+
+
+		res.redirect('/productos');
     },
 
     delete: (req, res) => {
         res.locals.title = "Eliminar";
         db.productos.destroy({
+			where: {
+				producto_id: req.params.id
+			}
+		})
+
+		res.redirect('/productos/');
+        /*db.productos.destroy({
             where: {
-                id: req.body.id
+                producto_id: req.params.id
             }
         })
             .then((product) => {
@@ -126,7 +157,7 @@ let productosController = {
                 res.render("/", { mensaje })
             }).catch((error) => {
                 res.render("/", { error })
-            });
+            });*/
     },
     admin: async (req, res) => {        //GET - Muestra todos los productos
         res.locals.title = "Todos los productos para editar";
