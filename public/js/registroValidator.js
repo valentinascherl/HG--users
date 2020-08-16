@@ -118,6 +118,20 @@ addEventListener('load', function() {
                 nameReg.style.border = "1px solid #ced4da";
             }
 
+            // VALIDACIÓN CAMPO APELLIDO DE LA VISTA REGISTRO
+            let apellidoReg = document.querySelector('input.apellido');
+            let apellidoRegContent = apellidoReg.value;
+            let emptyApellido = document.querySelector('div.emptyApellido');
+
+            if (apellidoRegContent = '' || apellidoRegContent.length < 3) {
+                event.preventDefault();
+                emptyApellido.innerHTML = '<p>' + 'Por favor, ingresá tu apellido. Debe tener al menos tres caracteres' + '</p>';
+                apellidoReg.style.border = "1px solid red";
+            } else {
+                emptyApellido.innerHTML = '';
+                apellidoReg.style.border = "1px solid #ced4da";
+            }
+
             // VALIDACIÓN CAMPO EMAiL DE LA VISTA REGISTRO
             let emailReg = document.querySelector('input.emailcito');
             let emailRegContent = emailReg.value;
@@ -146,6 +160,7 @@ addEventListener('load', function() {
             let passRegContent = passReg.value;
             let emptyRegPass = registerForm.querySelector('div.emptyPassReg');
             let invalidRegPass = registerForm.querySelector('div.invalidPassReg');
+            let regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
 
             if (passRegContent == '') {
                 event.preventDefault();

@@ -28,6 +28,34 @@ addEventListener('load', function () {
                 invalidEmail.innerHTML = "<p>" + 'Debés incluir el signo @ en la dirección de correo electrónico. La dirección ' + '<span style="font-weight: 600">' + emailContent + '</span>' + ' no la incluye.' + '</p>';
                 emailLog.style.border = "1px solid #CF664F";
             }
+             // VALIDACIÓN DEL CAMPO CONTRASEÑA DE LA VISTA LOGIN
+             let passLog = document.querySelector('input.contrasena');
+             let passLogContent = passLog.value;
+             let emptyPass = form.querySelector('div.emptyPassLog');
+             let invalidPass = form.querySelector('div.invalidPassLog');
+             let regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/;
+             //let iconoKey = form.querySelector('i#keyIconLog');
+ 
+             if (passLogContent == '') {
+                 e.preventDefault();
+                 emptyPass.innerHTML = '<p>' + 'Por favor, ingresá tu contraseña' + '</p>';
+                 //iconoKey.style.backgroundColor = "#CF664F";
+                 passLog.style.border = "1px solid red";
+             } else {
+                 emptyPass.innerHTML = '';
+                 //iconoKey.style.backgroundColor = "#6FCF97";
+                 passLog.style.border = "1px solid red";
+             }
+ 
+             if (!regExp.test(passLogContent) && passLogContent != '') {
+                 event.preventDefault();
+                 invalidPass.innerHTML = "<p>" + 'Revisá que la contraseña esté bien escrita' + '</p>';
+                 //iconoKey.style.backgroundColor = "#CF664F";
+                 passLog.style.border = "1px solid red";
+             } else {
+                 invalidPass.innerHTML = '';
+                 passLog.style.border = "1px solid #ced4da";
+             }
 
         })
     }
