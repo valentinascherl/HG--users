@@ -16,13 +16,15 @@
             <div class="container products-wrapper">
                 <div class="row">
                     <div class="col-12 col-lg-12">
+                        <% if (productos) { %>
+                            <% for (let i = 0; i < productos.length; i++ ){ %>
                         <section class="products-box">
                             <a href="">
                                 <figure class="products-box-image">
-                                    <img src="/images/Productos/spining.webp" height="120px" width="100px">
+                                    <img src="/images/Productos/<%= productos.imagen %>" height="120px" width="100px">
                                 </figure>
                                 <article class="product-box_data">
-                                    <p>></p>
+                                    <p><%= productos.nombre %></p>
                                 </article>
                             </a>
                             <div class="form">
@@ -34,34 +36,13 @@
                                     <option value="3">3</option>
                                 </select>
                                 <i class="fas fa-trash-alt"></i>
-                                <span>$000</span>
+                                <span>$<%= productos.precio %></span>
                             </div>
                         </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 col-lg-12">
-                        <section class="products-box">
-                            <a href="">
-                                <figure class="products-box-image">
-                                    <img src="/images/Productos/bolsa.webp" height="120px" width="100px">
-                                </figure>
-                                <article class="product-box_data">
-                                    <p>Bolsa de boxeo</p>
-                                </article>
-                            </a>
-                            <div class="form">
-                                <label for="">Cantidad de items</label>
-                                <select class="options  custom-select col-7 col-sm-12" name="" id="">
-                                    <option value="0">0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                                <i class="fas fa-trash-alt"></i>
-                                <span>$000</span>
-                            </div>
-                        </section>
+                        <% } %>
+                        <% } else { %>
+                            <h3 class="col 10" id="compras-titulo">Su carrito está vacío</h3>
+                        <% } %>
                     </div>
                 </div>
             </div>
@@ -78,7 +59,7 @@
                         <p><button class="btn btn-danger col-4" type="submit">Calcular</button></p>
                     </div>
                     <div class="total">
-                        <h1>TOTAL:<span>$000</span></h1>
+                    
                     </div>
                     <div class="comprar">
                         <p><a href="">Seguir comprando</a></p>
@@ -91,7 +72,6 @@
     </main>
     <!--Footer-->
     <%- include('./partials/footer') %>
-
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>

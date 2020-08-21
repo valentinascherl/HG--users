@@ -102,13 +102,6 @@ let productosController = {
 			})
 
 			.catch(error => console.log(error));
-            /*try {
-                const products = await db.productos.findByPk(req.params.id);
-                res.render("formToEdit", { products });
-            } catch (error) {
-                res.render("error", { error });
-            }
-        }*/
 
     },
     update:  (req, res) => {
@@ -147,17 +140,6 @@ let productosController = {
 		})
 
 		res.redirect('/productos/');
-        /*db.productos.destroy({
-            where: {
-                producto_id: req.params.id
-            }
-        })
-            .then((product) => {
-                let mensaje = 'El producto se eleminó correctamente.';
-                res.render("/", { mensaje })
-            }).catch((error) => {
-                res.render("/", { error })
-            });*/
     },
     admin: async (req, res) => {        //GET - Muestra todos los productos
         res.locals.title = "Todos los productos para editar";

@@ -126,7 +126,7 @@
 
 
 						<div class="cantidad">
-							<form class="col-6">
+							<form action="/carrito" method="POST" class="col-6">
 								Cantidad:
 								<select name="cantidad" id="cantidad" style="width: 130px;">
 
@@ -140,17 +140,19 @@
 							</form>
 						</div>
 					</div>
+					<form action="/carrito" method="POST" class='col-12' id="formulario">
 					<div class="botones">
 						<div class="btn-comprar col-5">
-							<a href="/carrito"><button type="button" class="btn-c"><i class="fas fa-coins"></i>COMPRAR
+							<a href="/carrito"><button type="submit" class="btn-c"><i class="fas fa-coins"></i>COMPRAR
 									AHORA</button></a>
 						</div>
 						<div class="btn-agregar col-6">
 								
-									<button type="button" class="btn-a"><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
+									<button type="submit" class="btn-a carrito"><i class="fas fa-shopping-cart"></i> AGREGAR AL CARRITO</button>
 								
 						</div>
 					</div>
+					</form>
 					<div class="col-12">
 						<a href="#"> ←Seguir comprando</a>
 					</div>
